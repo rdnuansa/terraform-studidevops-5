@@ -1,3 +1,158 @@
-version: 3
+parallel_apply: true
+parallel_plan: true
 projects:
-- dir: live/gcp/sandbox/dev.sandbox/vpc
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../vpc/terragrunt.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+    - ../../../../../modules/gcp/compute-instance/*.tf*
+  dir: gcp/andromeda/dev/compute-instance
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+  dir: gcp/andromeda/dev/vpc
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../vpc/terragrunt.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+    - ../../../../../modules/gcp/compute-instance/*.tf*
+  dir: gcp/andromeda/prod/compute-instance
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+  dir: gcp/andromeda/prod/vpc
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../vpc/terragrunt.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+    - ../../../../../modules/gcp/compute-instance/*.tf*
+  dir: gcp/andromeda/qa/compute-instance
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+  dir: gcp/andromeda/qa/vpc
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../vpc/terragrunt.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+    - ../../../../../modules/gcp/compute-instance/*.tf*
+  dir: gcp/andromeda/staging/compute-instance
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+  dir: gcp/andromeda/staging/vpc
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../vpc/terragrunt.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+    - ../../../../../modules/gcp/compute-instance/*.tf*
+  dir: gcp/sandbox/dev.sandbox/compute-instance
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+  dir: gcp/sandbox/dev.sandbox/vpc
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../vpc/terragrunt.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+    - ../../../../../modules/gcp/compute-instance/*.tf*
+  dir: gcp/sandbox/prod.sandbox/compute-instance
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+  dir: gcp/sandbox/prod.sandbox/vpc
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../vpc/terragrunt.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+    - ../../../../../modules/gcp/compute-instance/*.tf*
+  dir: gcp/sandbox/staging.sandbox/compute-instance
+- autoplan:
+    enabled: false
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../environment.hcl
+    - ../../project.hcl
+    - ../../../../root.hcl
+    - ../../../../../modules/gcp/vpc/*.tf*
+  dir: gcp/sandbox/staging.sandbox/vpc
+version: 3 
