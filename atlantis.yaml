@@ -13,6 +13,7 @@ projects:
     - ../../../../../modules/gcp/vpc/*.tf*
     - ../../../../../modules/gcp/compute-instance/*.tf*
   dir: live/gcp/andromeda/dev/compute-instance
+  execution_order_group: 2
 - autoplan:
     enabled: true
     when_modified:
@@ -23,6 +24,7 @@ projects:
     - ../../../../root.hcl
     - ../../../../../modules/gcp/vpc/*.tf*
   dir: live/gcp/andromeda/dev/vpc
+  execution_order_group: 1
 - autoplan:
     enabled: true
     when_modified:
@@ -35,6 +37,7 @@ projects:
     - ../../../../../modules/gcp/vpc/*.tf*
     - ../../../../../modules/gcp/compute-instance/*.tf*
   dir: live/gcp/andromeda/prod/compute-instance
+  execution_order_group: 2
 - autoplan:
     enabled: true
     when_modified:
@@ -45,6 +48,7 @@ projects:
     - ../../../../root.hcl
     - ../../../../../modules/gcp/vpc/*.tf*
   dir: live/gcp/andromeda/prod/vpc
+  execution_order_group: 1
 - autoplan:
     enabled: true
     when_modified:
@@ -57,6 +61,7 @@ projects:
     - ../../../../../modules/gcp/vpc/*.tf*
     - ../../../../../modules/gcp/compute-instance/*.tf*
   dir: live/gcp/andromeda/qa/compute-instance
+  execution_order_group: 2
 - autoplan:
     enabled: true
     when_modified:
@@ -67,6 +72,7 @@ projects:
     - ../../../../root.hcl
     - ../../../../../modules/gcp/vpc/*.tf*
   dir: live/gcp/andromeda/qa/vpc
+  execution_order_group: 1
 - autoplan:
     enabled: true
     when_modified:
@@ -79,6 +85,7 @@ projects:
     - ../../../../../modules/gcp/vpc/*.tf*
     - ../../../../../modules/gcp/compute-instance/*.tf*
   dir: live/gcp/andromeda/staging/compute-instance
+  execution_order_group: 2
 - autoplan:
     enabled: true
     when_modified:
@@ -89,6 +96,7 @@ projects:
     - ../../../../root.hcl
     - ../../../../../modules/gcp/vpc/*.tf*
   dir: live/gcp/andromeda/staging/vpc
+  execution_order_group: 1
 - autoplan:
     enabled: true
     when_modified:
@@ -101,6 +109,7 @@ projects:
     - ../../../../../modules/gcp/vpc/*.tf*
     - ../../../../../modules/gcp/compute-instance/*.tf*
   dir: live/gcp/sandbox/dev.sandbox/compute-instance
+  execution_order_group: 2
 - autoplan:
     enabled: true
     when_modified:
@@ -111,6 +120,7 @@ projects:
     - ../../../../root.hcl
     - ../../../../../modules/gcp/vpc/*.tf*
   dir: live/gcp/sandbox/dev.sandbox/vpc
+  execution_order_group: 1
 - autoplan:
     enabled: true
     when_modified:
@@ -123,6 +133,7 @@ projects:
     - ../../../../../modules/gcp/vpc/*.tf*
     - ../../../../../modules/gcp/compute-instance/*.tf*
   dir: live/gcp/sandbox/prod.sandbox/compute-instance
+  execution_order_group: 2
 - autoplan:
     enabled: true
     when_modified:
@@ -133,6 +144,7 @@ projects:
     - ../../../../root.hcl
     - ../../../../../modules/gcp/vpc/*.tf*
   dir: live/gcp/sandbox/prod.sandbox/vpc
+  execution_order_group: 1
 - autoplan:
     enabled: true
     when_modified:
@@ -145,6 +157,7 @@ projects:
     - ../../../../../modules/gcp/vpc/*.tf*
     - ../../../../../modules/gcp/compute-instance/*.tf*
   dir: live/gcp/sandbox/staging.sandbox/compute-instance
+  execution_order_group: 2
 - autoplan:
     enabled: true
     when_modified:
@@ -155,4 +168,5 @@ projects:
     - ../../../../root.hcl
     - ../../../../../modules/gcp/vpc/*.tf*
   dir: live/gcp/sandbox/staging.sandbox/vpc
+  execution_order_group: 1
 version: 3 
