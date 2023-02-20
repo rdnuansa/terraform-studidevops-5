@@ -24,3 +24,4 @@ projects:
     - ../../../../../modules/gcp/compute-instance/*.tf*
   dir: live/gcp/sandbox
   # execution_order_group: 2
+version: 3
