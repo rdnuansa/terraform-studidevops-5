@@ -1,0 +1,44 @@
+# Prerequisites
+
+## required tool 
+sudo apt update -y && sudo apt install git wget unzip -y
+
+## instal terraform
+wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update -y && sudo apt install terraform -y
+
+## install terragrunt
+wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.43.2/terragrunt_linux_amd64 -O terragrunt && chmod +x terragrunt
+sudo mv terragrunt /usr/local/bin/terragrunt
+
+## install atlantis
+wget https://github.com/runatlantis/atlantis/releases/download/v0.23.0-pre.20230209/atlantis_linux_amd64.zip && unzip atlantis_linux_amd64.zip
+sudo mv atlantis /usr/local/bin/atlantis
+
+## Run Atlantis
+export TOKEN="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"
+export USERNAME="atlantisbot"
+export SECRET="Atlantis#123"
+export IP_ADDRESS=$(curl -s ifconfig.me)
+sudo atlantis server --atlantis-url="http://$IP_ADDRESS" --gh-user="$USERNAME" --gh-token="$TOKEN" --gh-webhook-secret="$SECRET" --repo-allowlist="github.com/rdnuansa/*" --port=80 --repo-config="/home/admin/repo.yaml"
+
+
+## Atlantis server config (repo.yaml)
+repos:
+- id: /.*/
+  workflow: terragrunt
+workflows:
+  terragrunt:
+    plan:
+      steps:
+      - env:
+          name: DESTROY_PARAMETER
+          command:  if [ "$COMMENT_ARGS" = "\-\d\e\s\t\r\o\y" ]; then echo "-destroy"; else echo ""; fi
+      - run: terragrunt run-all plan --terragrunt-non-interactive -no-color -out=$PLANFILE $DESTROY_PARAMETER
+    apply:
+      steps:
+      - env:
+          name: DESTROY_PARAMETER
+          command:  if [ "$COMMENT_ARGS" = "\-\d\e\s\t\r\o\y" ]; then echo "-destroy"; else echo ""; fi
+      - run: terragrunt run-all apply --terragrunt-non-interactive -no-color $PLANFILE $DESTROY_PARAMETER
