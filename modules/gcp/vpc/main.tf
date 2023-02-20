@@ -39,3 +39,18 @@ resource "google_compute_firewall" "fw_rules" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["webserver"]
 }
+
+resource "google_compute_firewall" "fw_rules_https" {
+  project     = var.project
+  name        = "firewall-${var.vpc_name}-allow-https"
+  network     = google_compute_network.vpc.id
+  description = "Creates default firewall rule to allow HTTPS"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["443"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["allow-https"]
+}
