@@ -1,0 +1,3 @@
+version: 3
+projects:
+- dir: live/gcp/sandbox/dev.sandbox/vpc
