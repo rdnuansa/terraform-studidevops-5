@@ -23,6 +23,10 @@ resource "google_compute_subnetwork" "private_subnet" {
   ip_cidr_range = var.subnet_cidr
   region        = var.subnet_region
   network       = google_compute_network.vpc.id
+
+  depends_on = [
+    google_compute_network.vpc
+  ]
 }
 
 resource "google_compute_firewall" "fw_rules" {
@@ -38,6 +42,10 @@ resource "google_compute_firewall" "fw_rules" {
 
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["webserver"]
+
+  depends_on = [
+    google_compute_network.vpc
+  ]
 }
 
 resource "google_compute_firewall" "fw_rules_https" {
@@ -53,4 +61,8 @@ resource "google_compute_firewall" "fw_rules_https" {
 
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["allow-https"]
+
+  depends_on = [
+    google_compute_network.vpc
+  ]
 }
