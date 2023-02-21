@@ -2,7 +2,7 @@ parallel_apply: true
 parallel_plan: true
 projects:
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -15,7 +15,7 @@ projects:
   dir: live/gcp/andromeda/dev/compute-instance
   execution_order_group: 2
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -26,7 +26,7 @@ projects:
   dir: live/gcp/andromeda/dev/vpc
   execution_order_group: 1
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -39,7 +39,7 @@ projects:
   dir: live/gcp/andromeda/prod/compute-instance
   execution_order_group: 2
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -50,7 +50,7 @@ projects:
   dir: live/gcp/andromeda/prod/vpc
   execution_order_group: 1
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -63,7 +63,7 @@ projects:
   dir: live/gcp/andromeda/qa/compute-instance
   execution_order_group: 2
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -74,7 +74,7 @@ projects:
   dir: live/gcp/andromeda/qa/vpc
   execution_order_group: 1
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -87,7 +87,7 @@ projects:
   dir: live/gcp/andromeda/staging/compute-instance
   execution_order_group: 2
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -98,7 +98,7 @@ projects:
   dir: live/gcp/andromeda/staging/vpc
   execution_order_group: 1
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -111,7 +111,7 @@ projects:
   dir: live/gcp/sandbox/dev.sandbox/compute-instance
   execution_order_group: 2
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -122,7 +122,7 @@ projects:
   dir: live/gcp/sandbox/dev.sandbox/vpc
   execution_order_group: 1
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -135,7 +135,7 @@ projects:
   dir: live/gcp/sandbox/prod.sandbox/compute-instance
   execution_order_group: 2
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -146,7 +146,7 @@ projects:
   dir: live/gcp/sandbox/prod.sandbox/vpc
   execution_order_group: 1
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
@@ -159,7 +159,7 @@ projects:
   dir: live/gcp/sandbox/staging.sandbox/compute-instance
   execution_order_group: 2
 - autoplan:
-    enabled: false
+    enabled: true
     when_modified:
     - '*.hcl'
     - '*.tf*'
