@@ -26,6 +26,8 @@ dependency "vpc" {
     vpc_id = "DUMMY_VPC_ID"
     subnet_id = "DUMMY_SUBNET_ID"
   }
+  mock_outputs_allowed_terraform_commands = ["init", "validate", "plan"]
+
 }
 
 
